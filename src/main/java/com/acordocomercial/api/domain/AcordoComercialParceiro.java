@@ -1,13 +1,15 @@
 package com.acordocomercial.api.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
+import javax.persistence.OneToMany;
 
 @Entity
 @IdClass(AcordoComercialParceiroId.class)
@@ -26,6 +28,17 @@ public class AcordoComercialParceiro implements Serializable {
 	private Integer codSituacao;
 	private Integer numFuncionalColaborador;
 	private Integer codParceiroComerical;
+	
+	@OneToMany(mappedBy = "acordoComercialparceiro")
+	private List<AcordoComercialCanalDisponivel> acordoComCanalDisponivel = new ArrayList<>();
+
+	public List<AcordoComercialCanalDisponivel> getAcordoComCanalDisponivel() {
+		return acordoComCanalDisponivel;
+	}
+
+	public void setAcordoComCanalDisponivel(List<AcordoComercialCanalDisponivel> acordoComCanalDisponivel) {
+		this.acordoComCanalDisponivel = acordoComCanalDisponivel;
+	}
 
 	public Integer getNumAcordoComercialParceiro() {
 		return numAcordoComercialParceiro;

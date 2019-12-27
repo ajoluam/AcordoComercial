@@ -9,9 +9,11 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.acordocomercial.api.domain.AcordoComercialCanalDisponivel;
 import com.acordocomercial.api.domain.AcordoComercialParceiro;
 import com.acordocomercial.api.domain.ConfiguracaoGeralServicoArrecadacao;
 import com.acordocomercial.api.domain.TipoDebitoTarifa;
+import com.acordocomercial.api.repository.AcordoComercialCanalDisponivelRepository;
 import com.acordocomercial.api.repository.AcordoComercialParceiroRepository;
 import com.acordocomercial.api.repository.ConfiguracaoGeralServicoArrecadacaoRepository;
 import com.acordocomercial.api.repository.TipoDebitoTarifaRepository;
@@ -27,6 +29,9 @@ public class AcordoComercialApplication implements CommandLineRunner {
 	
 	@Autowired
 	private AcordoComercialParceiroRepository acordoComercialParceiroRepository;
+	
+	@Autowired
+	private AcordoComercialCanalDisponivelRepository acordoComercialCanalDisponivelRepository;
 		
 	
 	public static void main(String[] args) {
@@ -36,12 +41,29 @@ public class AcordoComercialApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		
+		AcordoComercialCanalDisponivel acordoDispo1 = new AcordoComercialCanalDisponivel();
+		acordoDispo1.setCodCanalDistribuicao(1);
+		acordoDispo1.setCodSituacao(1);
+		List<AcordoComercialCanalDisponivel> listAcorDisp1 = Arrays.asList(acordoDispo1);
+
+		AcordoComercialCanalDisponivel acordoDispo2 = new AcordoComercialCanalDisponivel();
+		acordoDispo2.setCodCanalDistribuicao(1);
+		acordoDispo2.setCodSituacao(1);
+		List<AcordoComercialCanalDisponivel> listAcorDisp2 = Arrays.asList(acordoDispo2);
+		
+		AcordoComercialCanalDisponivel acordoDispo3 = new AcordoComercialCanalDisponivel();
+		acordoDispo3.setCodCanalDistribuicao(1);
+		acordoDispo3.setCodSituacao(1);
+		List<AcordoComercialCanalDisponivel> listAcorDisp3 = Arrays.asList(acordoDispo3);
+		
 		AcordoComercialParceiro acordo1 = new AcordoComercialParceiro();
 		acordo1.setNumVersaoAcordoComercial(1);
 		acordo1.setCodParceiroComerical(1);
 		acordo1.setCodSituacao(1);
 		acordo1.setNumFuncionalColaborador(123);
+		acordo1.setAcordoComCanalDisponivel(listAcorDisp1);
 		acordo1 = acordoComercialParceiroRepository.save(acordo1);
+		acordoDispo1.setAcordoComercialparceiro(acordo1);
 		
 		
 		AcordoComercialParceiro acordo2 = new AcordoComercialParceiro();
@@ -49,15 +71,21 @@ public class AcordoComercialApplication implements CommandLineRunner {
 		acordo2.setCodParceiroComerical(122);
 		acordo2.setCodSituacao(122);
 		acordo2.setNumFuncionalColaborador(12223);
+		acordo2.setAcordoComCanalDisponivel(listAcorDisp2);
 		acordo2 = acordoComercialParceiroRepository.save(acordo2);
+		acordoDispo2.setAcordoComercialparceiro(acordo2);
 		
 		AcordoComercialParceiro acordo3 = new AcordoComercialParceiro();
 		acordo3.setNumVersaoAcordoComercial(1);
 		acordo3.setCodParceiroComerical(133);
 		acordo3.setCodSituacao(133);
 		acordo3.setNumFuncionalColaborador(12333);
+		acordo3.setAcordoComCanalDisponivel(listAcorDisp3);
 		acordo3 = acordoComercialParceiroRepository.save(acordo3);
+		acordoDispo2.setAcordoComercialparceiro(acordo2);
 		
+		
+		acordoComercialCanalDisponivelRepository.saveAll(Arrays.asList(acordoDispo1,acordoDispo2, acordoDispo3));
 		
 		TipoDebitoTarifa tip1 = new TipoDebitoTarifa();
 		tip1.setNomeTipoDebitoTarifa("Debito em Conta Corrente");
