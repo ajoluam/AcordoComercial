@@ -9,10 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
-import javax.persistence.MapsId;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -26,12 +23,11 @@ public class ConfiguracaoGeralServicoArrecadacao implements Serializable {
 	@Column(name = "COD_CFG_GRL_SV_ARREC")
 	private Integer codConfiguracaoGeralServicoArrecadacao;
 
-	@OneToOne
-	@JoinColumns({
-			@JoinColumn(name = "numAcordoComercialParceiro", referencedColumnName = "NUM_ACD_CMRL_PRC"),
-			@JoinColumn(name = "numeroVersaoAcordoComercial", referencedColumnName = "NUM_VRS_ACD_CMRL") })
-	@MapsId
-	private AcordoComercialParceiro acordoComercialParceiro;
+	@Column(name = "NUM_ACD_CMRL_PRC")
+	private Integer numAcordoComercialParceiro;
+
+	@Column(name = "NUM_VRS_ACD_CMRL")
+	private Integer numVersaoAcordoComercial;
 
 	private Integer codPeriodicidade;
 	private Integer codCriterio;
@@ -50,12 +46,21 @@ public class ConfiguracaoGeralServicoArrecadacao implements Serializable {
 		this.codConfiguracaoGeralServicoArrecadacao = codConfiguracaoGeralServicoArrecadacao;
 	}
 
-	public AcordoComercialParceiro getAcordoComercialParceiro() {
-		return acordoComercialParceiro;
+	
+	public Integer getNumAcordoComercialParceiro() {
+		return numAcordoComercialParceiro;
 	}
 
-	public void setAcordoComercialParceiro(AcordoComercialParceiro acordoComercialParceiro) {
-		this.acordoComercialParceiro = acordoComercialParceiro;
+	public void setNumAcordoComercialParceiro(Integer numAcordoComercialParceiro) {
+		this.numAcordoComercialParceiro = numAcordoComercialParceiro;
+	}
+
+	public Integer getNumVersaoAcordoComercial() {
+		return numVersaoAcordoComercial;
+	}
+
+	public void setNumVersaoAcordoComercial(Integer numVersaoAcordoComercial) {
+		this.numVersaoAcordoComercial = numVersaoAcordoComercial;
 	}
 
 	public Integer getCodPeriodicidade() {

@@ -2,6 +2,7 @@ package com.acordocomercial.api.domain;
 
 import java.io.Serializable;
 
+
 public class AcordoComercialParceiroId implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -20,6 +21,15 @@ public class AcordoComercialParceiroId implements Serializable {
 	}
 
 	
+	
+	public Integer getNumAcordoComercialParceiro() {
+		return numAcordoComercialParceiro;
+	}
+
+	public Integer getNumVersaoAcordoComercial() {
+		return numVersaoAcordoComercial;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

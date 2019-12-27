@@ -41,18 +41,22 @@ public class AcordoComercialApplication implements CommandLineRunner {
 		acordo1.setCodParceiroComerical(1);
 		acordo1.setCodSituacao(1);
 		acordo1.setNumFuncionalColaborador(123);
+		acordo1 = acordoComercialParceiroRepository.save(acordo1);
+		
 		
 		AcordoComercialParceiro acordo2 = new AcordoComercialParceiro();
-		acordo2.setNumVersaoAcordoComercial(1);;
+		acordo2.setNumVersaoAcordoComercial(1);
 		acordo2.setCodParceiroComerical(122);
 		acordo2.setCodSituacao(122);
 		acordo2.setNumFuncionalColaborador(12223);
+		acordo2 = acordoComercialParceiroRepository.save(acordo2);
 		
 		AcordoComercialParceiro acordo3 = new AcordoComercialParceiro();
-		acordo3.setNumVersaoAcordoComercial(1);;
+		acordo3.setNumVersaoAcordoComercial(1);
 		acordo3.setCodParceiroComerical(133);
 		acordo3.setCodSituacao(133);
 		acordo3.setNumFuncionalColaborador(12333);
+		acordo3 = acordoComercialParceiroRepository.save(acordo3);
 		
 		
 		TipoDebitoTarifa tip1 = new TipoDebitoTarifa();
@@ -68,6 +72,9 @@ public class AcordoComercialApplication implements CommandLineRunner {
 		cfg1.setDataFimVigencia(LocalDateTime.now());
 		cfg1.setDataInicioVigencia(LocalDateTime.now());
 		
+		cfg1.setNumAcordoComercialParceiro(acordo1.getNumAcordoComercialParceiro());
+		cfg1.setNumVersaoAcordoComercial(acordo1.getNumVersaoAcordoComercial());
+		
 		
 		ConfiguracaoGeralServicoArrecadacao cfg2 = new ConfiguracaoGeralServicoArrecadacao();
 		cfg2.setCodCriterio(2);
@@ -76,12 +83,18 @@ public class AcordoComercialApplication implements CommandLineRunner {
 		cfg2.setDataFimVigencia(LocalDateTime.now());
 		cfg2.setDataInicioVigencia(LocalDateTime.now());
 		
+		cfg2.setNumAcordoComercialParceiro(acordo2.getNumAcordoComercialParceiro());
+		cfg2.setNumVersaoAcordoComercial(acordo2.getNumVersaoAcordoComercial());
+		
 		ConfiguracaoGeralServicoArrecadacao cfg3 = new ConfiguracaoGeralServicoArrecadacao();
 		cfg3.setCodCriterio(5);
 		cfg3.setCodPeriodicidade(5);
 		cfg3.setCodTipoDebitoTarifa(tip2);
 		cfg3.setDataFimVigencia(LocalDateTime.now());
 		cfg3.setDataInicioVigencia(LocalDateTime.now());
+		
+		cfg3.setNumAcordoComercialParceiro(acordo3.getNumAcordoComercialParceiro());
+		cfg3.setNumVersaoAcordoComercial(acordo3.getNumVersaoAcordoComercial());
 		
 
 		
@@ -95,7 +108,7 @@ public class AcordoComercialApplication implements CommandLineRunner {
 		
 		configuracaoGeralServicoArrecadacaoRepository.saveAll(Arrays.asList(cfg1, cfg2, cfg3));
 		
-		acordoComercialParceiroRepository.saveAll(Arrays.asList(acordo1, acordo2, acordo3));
+		
 	}
 
 }

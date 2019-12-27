@@ -8,11 +8,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
-import javax.persistence.OneToOne;
 
 @Entity
 @IdClass(AcordoComercialParceiroId.class)
-public class AcordoComercialParceiro implements Serializable{
+public class AcordoComercialParceiro implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -27,18 +26,6 @@ public class AcordoComercialParceiro implements Serializable{
 	private Integer codSituacao;
 	private Integer numFuncionalColaborador;
 	private Integer codParceiroComerical;
-	
-	@OneToOne(mappedBy = "acordoComercialParceiro")
-	private ConfiguracaoGeralServicoArrecadacao configuracaoGeralServicoArrecadacao;
-
-	public ConfiguracaoGeralServicoArrecadacao getConfiguracaoGeralServicoArrecadacao() {
-		return configuracaoGeralServicoArrecadacao;
-	}
-
-	public void setConfiguracaoGeralServicoArrecadacao(
-			ConfiguracaoGeralServicoArrecadacao configuracaoGeralServicoArrecadacao) {
-		this.configuracaoGeralServicoArrecadacao = configuracaoGeralServicoArrecadacao;
-	}
 
 	public Integer getNumAcordoComercialParceiro() {
 		return numAcordoComercialParceiro;
