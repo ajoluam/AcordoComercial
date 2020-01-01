@@ -10,8 +10,8 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="containtermediariaacordocomercial")
-@NamedQuery(name="Containtermediariaacordocomercial.findAll", query="SELECT c FROM Containtermediariaacordocomercial c")
-public class Containtermediariaacordocomercial implements Serializable {
+@NamedQuery(name="ContaIntermediariaAcordoComercial.findAll", query="SELECT c FROM ContaIntermediariaAcordoComercial c")
+public class ContaIntermediariaAcordoComercial implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -40,7 +40,7 @@ public class Containtermediariaacordocomercial implements Serializable {
 	@Column(nullable=false)
 	private int numeroVersaoAcordoComercial;
 
-	public Containtermediariaacordocomercial() {
+	public ContaIntermediariaAcordoComercial() {
 	}
 
 	public int getCodigoContaIntermediariaAcordoComercial() {

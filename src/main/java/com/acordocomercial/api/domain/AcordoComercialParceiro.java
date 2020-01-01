@@ -12,12 +12,12 @@ import java.util.List;
  */
 @Entity
 @Table(name="acordocomercialparceiro")
-@NamedQuery(name="Acordocomercialparceiro.findAll", query="SELECT a FROM Acordocomercialparceiro a")
-public class Acordocomercialparceiro implements Serializable {
+@NamedQuery(name="AcordoComercialParceiro.findAll", query="SELECT a FROM AcordoComercialParceiro a")
+public class AcordoComercialParceiro implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@EmbeddedId
-	private AcordocomercialparceiroPK id;
+	private AcordoComercialParceiroPK id;
 
 	@Column(nullable=false)
 	private int codigoParceiroComercial;
@@ -49,21 +49,21 @@ public class Acordocomercialparceiro implements Serializable {
 	private String numeroFuncionalColaboradorConglomeradoAtualizacao;
 
 	//bi-directional many-to-one association to Acordocomercialcanaldisponivel
-	@OneToMany(mappedBy="acordocomercialparceiro")
-	private List<Acordocomercialcanaldisponivel> acordocomercialcanaldisponivels;
+	@OneToMany(mappedBy="acordoComercialParceiro")
+	private List<AcordoComercialCanalDisponivel> acordoComercialCanalDisponiveis;
 
 	//bi-directional many-to-one association to Contarepasse
-	@OneToMany(mappedBy="acordocomercialparceiro")
-	private List<Contarepasse> contarepasses;
+	@OneToMany(mappedBy="acordoComercialParceiro")
+	private List<ContaRepasse> contaRepasses;
 
-	public Acordocomercialparceiro() {
+	public AcordoComercialParceiro() {
 	}
 
-	public AcordocomercialparceiroPK getId() {
+	public AcordoComercialParceiroPK getId() {
 		return this.id;
 	}
 
-	public void setId(AcordocomercialparceiroPK id) {
+	public void setId(AcordoComercialParceiroPK id) {
 		this.id = id;
 	}
 
@@ -139,48 +139,48 @@ public class Acordocomercialparceiro implements Serializable {
 		this.numeroFuncionalColaboradorConglomeradoAtualizacao = numeroFuncionalColaboradorConglomeradoAtualizacao;
 	}
 
-	public List<Acordocomercialcanaldisponivel> getAcordocomercialcanaldisponivels() {
-		return this.acordocomercialcanaldisponivels;
+	public List<AcordoComercialCanalDisponivel> getAcordoComercialCanalDisponiveis() {
+		return this.acordoComercialCanalDisponiveis;
 	}
 
-	public void setAcordocomercialcanaldisponivels(List<Acordocomercialcanaldisponivel> acordocomercialcanaldisponivels) {
-		this.acordocomercialcanaldisponivels = acordocomercialcanaldisponivels;
+	public void setAcordocomercialcanaldisponivels(List<AcordoComercialCanalDisponivel> acordoComercialCanalDisponiveis) {
+		this.acordoComercialCanalDisponiveis = acordoComercialCanalDisponiveis;
 	}
 
-	public Acordocomercialcanaldisponivel addAcordocomercialcanaldisponivel(Acordocomercialcanaldisponivel acordocomercialcanaldisponivel) {
-		getAcordocomercialcanaldisponivels().add(acordocomercialcanaldisponivel);
-		acordocomercialcanaldisponivel.setAcordocomercialparceiro(this);
+	public AcordoComercialCanalDisponivel addAcordocomercialcanaldisponivel(AcordoComercialCanalDisponivel acordoComercialCanalDisponivel) {
+		getAcordoComercialCanalDisponiveis().add(acordoComercialCanalDisponivel);
+		acordoComercialCanalDisponivel.setAcordocomercialparceiro(this);
 
-		return acordocomercialcanaldisponivel;
+		return acordoComercialCanalDisponivel;
 	}
 
-	public Acordocomercialcanaldisponivel removeAcordocomercialcanaldisponivel(Acordocomercialcanaldisponivel acordocomercialcanaldisponivel) {
-		getAcordocomercialcanaldisponivels().remove(acordocomercialcanaldisponivel);
-		acordocomercialcanaldisponivel.setAcordocomercialparceiro(null);
+	public AcordoComercialCanalDisponivel removeAcordocomercialcanaldisponivel(AcordoComercialCanalDisponivel acordoComercialCanalDisponivel) {
+		getAcordoComercialCanalDisponiveis().remove(acordoComercialCanalDisponivel);
+		acordoComercialCanalDisponivel.setAcordocomercialparceiro(null);
 
-		return acordocomercialcanaldisponivel;
+		return acordoComercialCanalDisponivel;
 	}
 
-	public List<Contarepasse> getContarepasses() {
-		return this.contarepasses;
+	public List<ContaRepasse> getContaRepasses() {
+		return this.contaRepasses;
 	}
 
-	public void setContarepasses(List<Contarepasse> contarepasses) {
-		this.contarepasses = contarepasses;
+	public void setContarepasses(List<ContaRepasse> contaRepasses) {
+		this.contaRepasses = contaRepasses;
 	}
 
-	public Contarepasse addContarepass(Contarepasse contarepass) {
-		getContarepasses().add(contarepass);
-		contarepass.setAcordocomercialparceiro(this);
+	public ContaRepasse addContarepass(ContaRepasse contaRepasses) {
+		getContaRepasses().add(contaRepasses);
+		contaRepasses.setAcordocomercialparceiro(this);
 
-		return contarepass;
+		return contaRepasses;
 	}
 
-	public Contarepasse removeContarepass(Contarepasse contarepass) {
-		getContarepasses().remove(contarepass);
-		contarepass.setAcordocomercialparceiro(null);
+	public ContaRepasse removeContarepass(ContaRepasse contaRepasses) {
+		getContaRepasses().remove(contaRepasses);
+		contaRepasses.setAcordocomercialparceiro(null);
 
-		return contarepass;
+		return contaRepasses;
 	}
 
 }

@@ -12,8 +12,8 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="configuracaocanalservicoarrecadacao")
-@NamedQuery(name="Configuracaocanalservicoarrecadacao.findAll", query="SELECT c FROM Configuracaocanalservicoarrecadacao c")
-public class Configuracaocanalservicoarrecadacao implements Serializable {
+@NamedQuery(name="ConfiguracaoCanalServicoArrecadacao.findAll", query="SELECT c FROM ConfiguracaoCanalServicoArrecadacao c")
+public class ConfiguracaoCanalServicoArrecadacao implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -34,14 +34,14 @@ public class Configuracaocanalservicoarrecadacao implements Serializable {
 		@JoinColumn(name="numeroAcordoComercialParceiro", referencedColumnName="numeroAcordoComercialParceiro", nullable=false),
 		@JoinColumn(name="numeroVersaoAcordoComercial", referencedColumnName="numeroVersaoAcordoComercial", nullable=false)
 		})
-	private Acordocomercialcanaldisponivel acordocomercialcanaldisponivel;
+	private AcordoComercialCanalDisponivel acordoComercialCanalDisponivel;
 
 	//bi-directional many-to-one association to Tipovalortarifa
 	@ManyToOne
 	@JoinColumn(name="codigoTipoValorTarifa", nullable=false)
-	private Tipovalortarifa tipovalortarifa;
+	private TipoValorTarifa tipoValorTarifa;
 
-	public Configuracaocanalservicoarrecadacao() {
+	public ConfiguracaoCanalServicoArrecadacao() {
 	}
 
 	public int getCodigoConfiguracaoCanalServicoArrecadacao() {
@@ -68,20 +68,20 @@ public class Configuracaocanalservicoarrecadacao implements Serializable {
 		this.valorTarifaServicoArrecadacao = valorTarifaServicoArrecadacao;
 	}
 
-	public Acordocomercialcanaldisponivel getAcordocomercialcanaldisponivel() {
-		return this.acordocomercialcanaldisponivel;
+	public AcordoComercialCanalDisponivel getAcordocomercialcanaldisponivel() {
+		return this.acordoComercialCanalDisponivel;
 	}
 
-	public void setAcordocomercialcanaldisponivel(Acordocomercialcanaldisponivel acordocomercialcanaldisponivel) {
-		this.acordocomercialcanaldisponivel = acordocomercialcanaldisponivel;
+	public void setAcordocomercialcanaldisponivel(AcordoComercialCanalDisponivel acordoComercialCanalDisponivel) {
+		this.acordoComercialCanalDisponivel = acordoComercialCanalDisponivel;
 	}
 
-	public Tipovalortarifa getTipovalortarifa() {
-		return this.tipovalortarifa;
+	public TipoValorTarifa getTipoValorTarifa() {
+		return this.tipoValorTarifa;
 	}
 
-	public void setTipovalortarifa(Tipovalortarifa tipovalortarifa) {
-		this.tipovalortarifa = tipovalortarifa;
+	public void setTipovalortarifa(TipoValorTarifa tipoValorTarifa) {
+		this.tipoValorTarifa = tipoValorTarifa;
 	}
 
 }

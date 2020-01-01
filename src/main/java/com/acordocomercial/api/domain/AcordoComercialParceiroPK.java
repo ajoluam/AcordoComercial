@@ -8,7 +8,7 @@ import javax.persistence.*;
  * 
  */
 @Embeddable
-public class AcordocomercialparceiroPK implements Serializable {
+public class AcordoComercialParceiroPK implements Serializable {
 	//default serial version id, required for serializable classes.
 	private static final long serialVersionUID = 1L;
 
@@ -18,7 +18,7 @@ public class AcordocomercialparceiroPK implements Serializable {
 	@Column(unique=true, nullable=false)
 	private int numeroVersaoAcordoComercial;
 
-	public AcordocomercialparceiroPK() {
+	public AcordoComercialParceiroPK() {
 	}
 	public int getNumeroAcordoComercialParceiro() {
 		return this.numeroAcordoComercialParceiro;
@@ -37,10 +37,10 @@ public class AcordocomercialparceiroPK implements Serializable {
 		if (this == other) {
 			return true;
 		}
-		if (!(other instanceof AcordocomercialparceiroPK)) {
+		if (!(other instanceof AcordoComercialParceiroPK)) {
 			return false;
 		}
-		AcordocomercialparceiroPK castOther = (AcordocomercialparceiroPK)other;
+		AcordoComercialParceiroPK castOther = (AcordoComercialParceiroPK)other;
 		return 
 			(this.numeroAcordoComercialParceiro == castOther.numeroAcordoComercialParceiro)
 			&& (this.numeroVersaoAcordoComercial == castOther.numeroVersaoAcordoComercial);

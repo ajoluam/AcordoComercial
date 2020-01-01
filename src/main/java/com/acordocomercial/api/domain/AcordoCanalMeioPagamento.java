@@ -10,12 +10,12 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="acordocanalmeiopagamento")
-@NamedQuery(name="Acordocanalmeiopagamento.findAll", query="SELECT a FROM Acordocanalmeiopagamento a")
-public class Acordocanalmeiopagamento implements Serializable {
+@NamedQuery(name="AcordoCanalMeioPagamento.findAll", query="SELECT a FROM AcordoCanalMeioPagamento a")
+public class AcordoCanalMeioPagamento implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@EmbeddedId
-	private AcordocanalmeiopagamentoPK id;
+	private AcordoCanalMeioPagamentoPK id;
 
 	//bi-directional many-to-one association to Acordocomercialcanaldisponivel
 	@ManyToOne
@@ -24,25 +24,25 @@ public class Acordocanalmeiopagamento implements Serializable {
 		@JoinColumn(name="numeroAcordoComercialParceiro", referencedColumnName="numeroAcordoComercialParceiro", nullable=false, insertable=false, updatable=false),
 		@JoinColumn(name="numeroVersaoAcordoComercial", referencedColumnName="numeroVersaoAcordoComercial", nullable=false, insertable=false, updatable=false)
 		})
-	private Acordocomercialcanaldisponivel acordocomercialcanaldisponivel;
+	private AcordoComercialCanalDisponivel acordoComercialCanalDisponivel;
 
-	public Acordocanalmeiopagamento() {
+	public AcordoCanalMeioPagamento() {
 	}
 
-	public AcordocanalmeiopagamentoPK getId() {
+	public AcordoCanalMeioPagamentoPK getId() {
 		return this.id;
 	}
 
-	public void setId(AcordocanalmeiopagamentoPK id) {
+	public void setId(AcordoCanalMeioPagamentoPK id) {
 		this.id = id;
 	}
 
-	public Acordocomercialcanaldisponivel getAcordocomercialcanaldisponivel() {
-		return this.acordocomercialcanaldisponivel;
+	public AcordoComercialCanalDisponivel getAcordocomercialcanaldisponivel() {
+		return this.acordoComercialCanalDisponivel;
 	}
 
-	public void setAcordocomercialcanaldisponivel(Acordocomercialcanaldisponivel acordocomercialcanaldisponivel) {
-		this.acordocomercialcanaldisponivel = acordocomercialcanaldisponivel;
+	public void setAcordocomercialcanaldisponivel(AcordoComercialCanalDisponivel acordoComercialCanalDisponivel) {
+		this.acordoComercialCanalDisponivel = acordoComercialCanalDisponivel;
 	}
 
 }

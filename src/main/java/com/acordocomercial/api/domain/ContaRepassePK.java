@@ -4,11 +4,11 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 /**
- * The primary key class for the acordocomercialcanaldisponivel database table.
+ * The primary key class for the contarepasse database table.
  * 
  */
 @Embeddable
-public class AcordocomercialcanaldisponivelPK implements Serializable {
+public class ContaRepassePK implements Serializable {
 	//default serial version id, required for serializable classes.
 	private static final long serialVersionUID = 1L;
 
@@ -18,10 +18,13 @@ public class AcordocomercialcanaldisponivelPK implements Serializable {
 	@Column(insertable=false, updatable=false, unique=true, nullable=false)
 	private int numeroVersaoAcordoComercial;
 
-	@Column(unique=true, nullable=false, length=2)
-	private String codigoCanalDistribuicao;
+	@Column(unique=true, nullable=false)
+	private int codigoParceiroComercial;
 
-	public AcordocomercialcanaldisponivelPK() {
+	@Column(unique=true, nullable=false)
+	private int numeroSequencialContaParceiroComercial;
+
+	public ContaRepassePK() {
 	}
 	public int getNumeroAcordoComercialParceiro() {
 		return this.numeroAcordoComercialParceiro;
@@ -35,25 +38,32 @@ public class AcordocomercialcanaldisponivelPK implements Serializable {
 	public void setNumeroVersaoAcordoComercial(int numeroVersaoAcordoComercial) {
 		this.numeroVersaoAcordoComercial = numeroVersaoAcordoComercial;
 	}
-	public String getCodigoCanalDistribuicao() {
-		return this.codigoCanalDistribuicao;
+	public int getCodigoParceiroComercial() {
+		return this.codigoParceiroComercial;
 	}
-	public void setCodigoCanalDistribuicao(String codigoCanalDistribuicao) {
-		this.codigoCanalDistribuicao = codigoCanalDistribuicao;
+	public void setCodigoParceiroComercial(int codigoParceiroComercial) {
+		this.codigoParceiroComercial = codigoParceiroComercial;
+	}
+	public int getNumeroSequencialContaParceiroComercial() {
+		return this.numeroSequencialContaParceiroComercial;
+	}
+	public void setNumeroSequencialContaParceiroComercial(int numeroSequencialContaParceiroComercial) {
+		this.numeroSequencialContaParceiroComercial = numeroSequencialContaParceiroComercial;
 	}
 
 	public boolean equals(Object other) {
 		if (this == other) {
 			return true;
 		}
-		if (!(other instanceof AcordocomercialcanaldisponivelPK)) {
+		if (!(other instanceof ContaRepassePK)) {
 			return false;
 		}
-		AcordocomercialcanaldisponivelPK castOther = (AcordocomercialcanaldisponivelPK)other;
+		ContaRepassePK castOther = (ContaRepassePK)other;
 		return 
 			(this.numeroAcordoComercialParceiro == castOther.numeroAcordoComercialParceiro)
 			&& (this.numeroVersaoAcordoComercial == castOther.numeroVersaoAcordoComercial)
-			&& this.codigoCanalDistribuicao.equals(castOther.codigoCanalDistribuicao);
+			&& (this.codigoParceiroComercial == castOther.codigoParceiroComercial)
+			&& (this.numeroSequencialContaParceiroComercial == castOther.numeroSequencialContaParceiroComercial);
 	}
 
 	public int hashCode() {
@@ -61,7 +71,8 @@ public class AcordocomercialcanaldisponivelPK implements Serializable {
 		int hash = 17;
 		hash = hash * prime + this.numeroAcordoComercialParceiro;
 		hash = hash * prime + this.numeroVersaoAcordoComercial;
-		hash = hash * prime + this.codigoCanalDistribuicao.hashCode();
+		hash = hash * prime + this.codigoParceiroComercial;
+		hash = hash * prime + this.numeroSequencialContaParceiroComercial;
 		
 		return hash;
 	}

@@ -11,12 +11,12 @@ import java.math.BigDecimal;
  */
 @Entity
 @Table(name="contarepasse")
-@NamedQuery(name="Contarepasse.findAll", query="SELECT c FROM Contarepasse c")
-public class Contarepasse implements Serializable {
+@NamedQuery(name="ContaRepasse.findAll", query="SELECT c FROM ContaRepasse c")
+public class ContaRepasse implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@EmbeddedId
-	private ContarepassePK id;
+	private ContaRepassePK id;
 
 	@Column(length=5)
 	private String codigoFinalidadeSistemaPagamentoBrasileiro;
@@ -33,16 +33,16 @@ public class Contarepasse implements Serializable {
 		@JoinColumn(name="numeroAcordoComercialParceiro", referencedColumnName="numeroAcordoComercialParceiro", nullable=false, insertable=false, updatable=false),
 		@JoinColumn(name="numeroVersaoAcordoComercial", referencedColumnName="numeroVersaoAcordoComercial", nullable=false, insertable=false, updatable=false)
 		})
-	private Acordocomercialparceiro acordocomercialparceiro;
+	private AcordoComercialParceiro acordoComercialParceiro;
 
-	public Contarepasse() {
+	public ContaRepasse() {
 	}
 
-	public ContarepassePK getId() {
+	public ContaRepassePK getId() {
 		return this.id;
 	}
 
-	public void setId(ContarepassePK id) {
+	public void setId(ContaRepassePK id) {
 		this.id = id;
 	}
 
@@ -70,12 +70,12 @@ public class Contarepasse implements Serializable {
 		this.percentualRateioContaRepasseParceiro = percentualRateioContaRepasseParceiro;
 	}
 
-	public Acordocomercialparceiro getAcordocomercialparceiro() {
-		return this.acordocomercialparceiro;
+	public AcordoComercialParceiro getAcordoComercialParceiro() {
+		return this.acordoComercialParceiro;
 	}
 
-	public void setAcordocomercialparceiro(Acordocomercialparceiro acordocomercialparceiro) {
-		this.acordocomercialparceiro = acordocomercialparceiro;
+	public void setAcordocomercialparceiro(AcordoComercialParceiro acordoComercialParceiro) {
+		this.acordoComercialParceiro = acordoComercialParceiro;
 	}
 
 }

@@ -11,12 +11,12 @@ import java.util.Date;
  */
 @Entity
 @Table(name="configuracaogeralservicoarrecadacao")
-@NamedQuery(name="Configuracaogeralservicoarrecadacao.findAll", query="SELECT c FROM Configuracaogeralservicoarrecadacao c")
-public class Configuracaogeralservicoarrecadacao implements Serializable {
+@NamedQuery(name="ConfiguracaoGeralServicoArrecadacao.findAll", query="SELECT c FROM ConfiguracaoGeralServicoArrecadacao c")
+public class ConfiguracaoGeralServicoArrecadacao implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@EmbeddedId
-	private ConfiguracaogeralservicoarrecadacaoPK id;
+	private ConfiguracaoGeralServicoArrecadacaoPK id;
 
 	@Column(nullable=false)
 	private int codigoCriterioTaxaCorrecaoMonetariaAcordoContrato;
@@ -41,16 +41,16 @@ public class Configuracaogeralservicoarrecadacao implements Serializable {
 	//bi-directional many-to-one association to Tipodebitotarifa
 	@ManyToOne
 	@JoinColumn(name="codigoTipoDebitoTarifa", nullable=false, insertable=false, updatable=false)
-	private Tipodebitotarifa tipodebitotarifa;
+	private TipoDebitoTarifa tipoDebitoTarifa;
 
-	public Configuracaogeralservicoarrecadacao() {
+	public ConfiguracaoGeralServicoArrecadacao() {
 	}
 
-	public ConfiguracaogeralservicoarrecadacaoPK getId() {
+	public ConfiguracaoGeralServicoArrecadacaoPK getId() {
 		return this.id;
 	}
 
-	public void setId(ConfiguracaogeralservicoarrecadacaoPK id) {
+	public void setId(ConfiguracaoGeralServicoArrecadacaoPK id) {
 		this.id = id;
 	}
 
@@ -102,12 +102,12 @@ public class Configuracaogeralservicoarrecadacao implements Serializable {
 		this.numeroVersaoAcordoComercial = numeroVersaoAcordoComercial;
 	}
 
-	public Tipodebitotarifa getTipodebitotarifa() {
-		return this.tipodebitotarifa;
+	public TipoDebitoTarifa getTipoDebitoTarifa() {
+		return this.tipoDebitoTarifa;
 	}
 
-	public void setTipodebitotarifa(Tipodebitotarifa tipodebitotarifa) {
-		this.tipodebitotarifa = tipodebitotarifa;
+	public void setTipodebitotarifa(TipoDebitoTarifa tipoDebitoTarifa) {
+		this.tipoDebitoTarifa = tipoDebitoTarifa;
 	}
 
 }

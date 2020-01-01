@@ -8,7 +8,7 @@ import javax.persistence.*;
  * 
  */
 @Embeddable
-public class ConfiguracaogeralservicoarrecadacaoPK implements Serializable {
+public class ConfiguracaoGeralServicoArrecadacaoPK implements Serializable {
 	//default serial version id, required for serializable classes.
 	private static final long serialVersionUID = 1L;
 
@@ -18,7 +18,7 @@ public class ConfiguracaogeralservicoarrecadacaoPK implements Serializable {
 	@Column(insertable=false, updatable=false, unique=true, nullable=false)
 	private int codigoTipoDebitoTarifa;
 
-	public ConfiguracaogeralservicoarrecadacaoPK() {
+	public ConfiguracaoGeralServicoArrecadacaoPK() {
 	}
 	public int getCodigoConfiguracaoGeralServicoArrecadacao() {
 		return this.codigoConfiguracaoGeralServicoArrecadacao;
@@ -37,10 +37,10 @@ public class ConfiguracaogeralservicoarrecadacaoPK implements Serializable {
 		if (this == other) {
 			return true;
 		}
-		if (!(other instanceof ConfiguracaogeralservicoarrecadacaoPK)) {
+		if (!(other instanceof ConfiguracaoGeralServicoArrecadacaoPK)) {
 			return false;
 		}
-		ConfiguracaogeralservicoarrecadacaoPK castOther = (ConfiguracaogeralservicoarrecadacaoPK)other;
+		ConfiguracaoGeralServicoArrecadacaoPK castOther = (ConfiguracaoGeralServicoArrecadacaoPK)other;
 		return 
 			(this.codigoConfiguracaoGeralServicoArrecadacao == castOther.codigoConfiguracaoGeralServicoArrecadacao)
 			&& (this.codigoTipoDebitoTarifa == castOther.codigoTipoDebitoTarifa);
