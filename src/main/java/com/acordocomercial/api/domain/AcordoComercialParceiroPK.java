@@ -9,27 +9,31 @@ import javax.persistence.*;
  */
 @Embeddable
 public class AcordoComercialParceiroPK implements Serializable {
-	//default serial version id, required for serializable classes.
+	// default serial version id, required for serializable classes.
 	private static final long serialVersionUID = 1L;
 
-	@Column(name="NUM_ACOR_COML_PACE", unique=true, nullable=false)
-	private int numeroAcordoComercialParceiro;
+	@Column(name = "NUM_ACOR_COML_PACE", unique = true, nullable = false)
+	private Integer numeroAcordoComercialParceiro;
 
-	@Column(name="NUM_VERS_ACOR_COML", unique=true, nullable=false)
-	private int numeroVersaoAcordoComercial;
+	@Column(name = "NUM_VERS_ACOR_COML", unique = true, nullable = false)
+	private Integer numeroVersaoAcordoComercial;
 
 	public AcordoComercialParceiroPK() {
 	}
-	public int getNumeroAcordoComercialParceiro() {
+
+	public Integer getNumeroAcordoComercialParceiro() {
 		return this.numeroAcordoComercialParceiro;
 	}
-	public void setNumeroAcordoComercialParceiro(int numeroAcordoComercialParceiro) {
+
+	public void setNumeroAcordoComercialParceiro(Integer numeroAcordoComercialParceiro) {
 		this.numeroAcordoComercialParceiro = numeroAcordoComercialParceiro;
 	}
-	public int getNumeroVersaoAcordoComercial() {
+
+	public Integer getNumeroVersaoAcordoComercial() {
 		return this.numeroVersaoAcordoComercial;
 	}
-	public void setNumeroVersaoAcordoComercial(int numeroVersaoAcordoComercial) {
+
+	public void setNumeroVersaoAcordoComercial(Integer numeroVersaoAcordoComercial) {
 		this.numeroVersaoAcordoComercial = numeroVersaoAcordoComercial;
 	}
 
@@ -40,10 +44,9 @@ public class AcordoComercialParceiroPK implements Serializable {
 		if (!(other instanceof AcordoComercialParceiroPK)) {
 			return false;
 		}
-		AcordoComercialParceiroPK castOther = (AcordoComercialParceiroPK)other;
-		return 
-			(this.numeroAcordoComercialParceiro == castOther.numeroAcordoComercialParceiro)
-			&& (this.numeroVersaoAcordoComercial == castOther.numeroVersaoAcordoComercial);
+		AcordoComercialParceiroPK castOther = (AcordoComercialParceiroPK) other;
+		return (this.numeroAcordoComercialParceiro == castOther.numeroAcordoComercialParceiro)
+				&& (this.numeroVersaoAcordoComercial == castOther.numeroVersaoAcordoComercial);
 	}
 
 	public int hashCode() {
@@ -51,7 +54,7 @@ public class AcordoComercialParceiroPK implements Serializable {
 		int hash = 17;
 		hash = hash * prime + this.numeroAcordoComercialParceiro;
 		hash = hash * prime + this.numeroVersaoAcordoComercial;
-		
+
 		return hash;
 	}
 }

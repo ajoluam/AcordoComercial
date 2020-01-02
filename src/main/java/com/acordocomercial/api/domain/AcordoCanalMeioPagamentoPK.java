@@ -9,45 +9,53 @@ import javax.persistence.*;
  */
 @Embeddable
 public class AcordoCanalMeioPagamentoPK implements Serializable {
-	//default serial version id, required for serializable classes.
+	// default serial version id, required for serializable classes.
 	private static final long serialVersionUID = 1L;
 
-	@Column(name="NUM_ACOR_COML_PACE", insertable=false, updatable=false, unique=true, nullable=false)
-	private int numeroAcordoComercialParceiro;
+	@Column(name = "NUM_ACOR_COML_PACE", insertable = false, updatable = false, unique = true, nullable = false)
+	private Integer numeroAcordoComercialParceiro;
 
-	@Column(name="NUM_VERS_ACOR_COML", insertable=false, updatable=false, unique=true, nullable=false)
-	private int numeroVersaoAcordoComercial;
+	@Column(name = "NUM_VERS_ACOR_COML", insertable = false, updatable = false, unique = true, nullable = false)
+	private Integer numeroVersaoAcordoComercial;
 
-	@Column(name="COD_CANA_DTBC", insertable=false, updatable=false, unique=true, nullable=false, length=2)
+	@Column(name = "COD_CANA_DTBC", insertable = false, updatable = false, unique = true, nullable = false, length = 2)
 	private String codigoCanalDistribuicao;
 
-	@Column(name="COD_TIPO_MEIO_PGTO", unique=true, nullable=false)
-	private int codigoTipoMeioPagamento;
+	@Column(name = "COD_TIPO_MEIO_PGTO", unique = true, nullable = false)
+	private Integer codigoTipoMeioPagamento;
 
 	public AcordoCanalMeioPagamentoPK() {
 	}
-	public int getNumeroAcordoComercialParceiro() {
+
+	public Integer getNumeroAcordoComercialParceiro() {
 		return this.numeroAcordoComercialParceiro;
 	}
-	public void setNumeroAcordoComercialParceiro(int numeroAcordoComercialParceiro) {
+
+	public void setNumeroAcordoComercialParceiro(Integer numeroAcordoComercialParceiro) {
 		this.numeroAcordoComercialParceiro = numeroAcordoComercialParceiro;
 	}
-	public int getNumeroVersaoAcordoComercial() {
+
+	public Integer getNumeroVersaoAcordoComercial() {
 		return this.numeroVersaoAcordoComercial;
 	}
-	public void setNumeroVersaoAcordoComercial(int numeroVersaoAcordoComercial) {
+
+	public void setNumeroVersaoAcordoComercial(Integer numeroVersaoAcordoComercial) {
 		this.numeroVersaoAcordoComercial = numeroVersaoAcordoComercial;
 	}
+
 	public String getCodigoCanalDistribuicao() {
 		return this.codigoCanalDistribuicao;
 	}
+
 	public void setCodigoCanalDistribuicao(String codigoCanalDistribuicao) {
 		this.codigoCanalDistribuicao = codigoCanalDistribuicao;
 	}
-	public int getCodigoTipoMeioPagamento() {
+
+	public Integer getCodigoTipoMeioPagamento() {
 		return this.codigoTipoMeioPagamento;
 	}
-	public void setCodigoTipoMeioPagamento(int codigoTipoMeioPagamento) {
+
+	public void setCodigoTipoMeioPagamento(Integer codigoTipoMeioPagamento) {
 		this.codigoTipoMeioPagamento = codigoTipoMeioPagamento;
 	}
 
@@ -58,12 +66,11 @@ public class AcordoCanalMeioPagamentoPK implements Serializable {
 		if (!(other instanceof AcordoCanalMeioPagamentoPK)) {
 			return false;
 		}
-		AcordoCanalMeioPagamentoPK castOther = (AcordoCanalMeioPagamentoPK)other;
-		return 
-			(this.numeroAcordoComercialParceiro == castOther.numeroAcordoComercialParceiro)
-			&& (this.numeroVersaoAcordoComercial == castOther.numeroVersaoAcordoComercial)
-			&& this.codigoCanalDistribuicao.equals(castOther.codigoCanalDistribuicao)
-			&& (this.codigoTipoMeioPagamento == castOther.codigoTipoMeioPagamento);
+		AcordoCanalMeioPagamentoPK castOther = (AcordoCanalMeioPagamentoPK) other;
+		return (this.numeroAcordoComercialParceiro == castOther.numeroAcordoComercialParceiro)
+				&& (this.numeroVersaoAcordoComercial == castOther.numeroVersaoAcordoComercial)
+				&& this.codigoCanalDistribuicao.equals(castOther.codigoCanalDistribuicao)
+				&& (this.codigoTipoMeioPagamento == castOther.codigoTipoMeioPagamento);
 	}
 
 	public int hashCode() {
@@ -73,7 +80,7 @@ public class AcordoCanalMeioPagamentoPK implements Serializable {
 		hash = hash * prime + this.numeroVersaoAcordoComercial;
 		hash = hash * prime + this.codigoCanalDistribuicao.hashCode();
 		hash = hash * prime + this.codigoTipoMeioPagamento;
-		
+
 		return hash;
 	}
 }

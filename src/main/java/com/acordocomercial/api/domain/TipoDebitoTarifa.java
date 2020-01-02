@@ -1,8 +1,17 @@
 package com.acordocomercial.api.domain;
 
 import java.io.Serializable;
-import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 /**
  * The persistent class for the tipodebitotarifa database table.
@@ -17,23 +26,23 @@ public class TipoDebitoTarifa implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "COD_TIPO_DEBT_TARI", unique = true, nullable = false)
-	private int codigoTipoDebitoTarifa;
+	private Integer codigoTipoDebitoTarifa;
 
 	@Column(name = "NOM_TIPO_DEBT_TARI", nullable = false, length = 30)
 	private String nomeTipoDebitoTarifa;
 
 	// bi-directional many-to-one association to Configuracaogeralservicoarrecadacao
 	@OneToMany(mappedBy = "tipoDebitoTarifa")
-	private List<ConfiguracaoGeralServicoArrecadacao> configuracaoGeralServicoArrecadacoes;
+	private List<ConfiguracaoGeralServicoArrecadacao> configuracaoGeralServicoArrecadacoes = new ArrayList<>();
 
 	public TipoDebitoTarifa() {
 	}
 
-	public int getCodigoTipoDebitoTarifa() {
+	public Integer getCodigoTipoDebitoTarifa() {
 		return this.codigoTipoDebitoTarifa;
 	}
 
-	public void setCodigoTipoDebitoTarifa(int codigoTipoDebitoTarifa) {
+	public void setCodigoTipoDebitoTarifa(Integer codigoTipoDebitoTarifa) {
 		this.codigoTipoDebitoTarifa = codigoTipoDebitoTarifa;
 	}
 

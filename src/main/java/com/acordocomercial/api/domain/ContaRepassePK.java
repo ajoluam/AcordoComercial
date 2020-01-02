@@ -9,45 +9,53 @@ import javax.persistence.*;
  */
 @Embeddable
 public class ContaRepassePK implements Serializable {
-	//default serial version id, required for serializable classes.
+	// default serial version id, required for serializable classes.
 	private static final long serialVersionUID = 1L;
 
-	@Column(name="NUM_ACOR_COML_PACE", insertable=false, updatable=false, unique=true, nullable=false)
-	private int numeroAcordoComercialParceiro;
+	@Column(name = "NUM_ACOR_COML_PACE", insertable = false, updatable = false, unique = true, nullable = false)
+	private Integer numeroAcordoComercialParceiro;
 
-	@Column(name="NUM_VERS_ACOR_COML", insertable=false, updatable=false, unique=true, nullable=false)
-	private int numeroVersaoAcordoComercial;
+	@Column(name = "NUM_VERS_ACOR_COML", insertable = false, updatable = false, unique = true, nullable = false)
+	private Integer numeroVersaoAcordoComercial;
 
-	@Column(name="COD_PACE_COML", unique=true, nullable=false)
-	private int codigoParceiroComercial;
+	@Column(name = "COD_PACE_COML", unique = true, nullable = false)
+	private Integer codigoParceiroComercial;
 
-	@Column(name="NUM_SEQE_CONT_PACE_COML", unique=true, nullable=false)
-	private int numeroSequencialContaParceiroComercial;
+	@Column(name = "NUM_SEQE_CONT_PACE_COML", unique = true, nullable = false)
+	private Integer numeroSequencialContaParceiroComercial;
 
 	public ContaRepassePK() {
 	}
-	public int getNumeroAcordoComercialParceiro() {
+
+	public Integer getNumeroAcordoComercialParceiro() {
 		return this.numeroAcordoComercialParceiro;
 	}
-	public void setNumeroAcordoComercialParceiro(int numeroAcordoComercialParceiro) {
+
+	public void setNumeroAcordoComercialParceiro(Integer numeroAcordoComercialParceiro) {
 		this.numeroAcordoComercialParceiro = numeroAcordoComercialParceiro;
 	}
-	public int getNumeroVersaoAcordoComercial() {
+
+	public Integer getNumeroVersaoAcordoComercial() {
 		return this.numeroVersaoAcordoComercial;
 	}
-	public void setNumeroVersaoAcordoComercial(int numeroVersaoAcordoComercial) {
+
+	public void setNumeroVersaoAcordoComercial(Integer numeroVersaoAcordoComercial) {
 		this.numeroVersaoAcordoComercial = numeroVersaoAcordoComercial;
 	}
-	public int getCodigoParceiroComercial() {
+
+	public Integer getCodigoParceiroComercial() {
 		return this.codigoParceiroComercial;
 	}
-	public void setCodigoParceiroComercial(int codigoParceiroComercial) {
+
+	public void setCodigoParceiroComercial(Integer codigoParceiroComercial) {
 		this.codigoParceiroComercial = codigoParceiroComercial;
 	}
-	public int getNumeroSequencialContaParceiroComercial() {
+
+	public Integer getNumeroSequencialContaParceiroComercial() {
 		return this.numeroSequencialContaParceiroComercial;
 	}
-	public void setNumeroSequencialContaParceiroComercial(int numeroSequencialContaParceiroComercial) {
+
+	public void setNumeroSequencialContaParceiroComercial(Integer numeroSequencialContaParceiroComercial) {
 		this.numeroSequencialContaParceiroComercial = numeroSequencialContaParceiroComercial;
 	}
 
@@ -58,12 +66,11 @@ public class ContaRepassePK implements Serializable {
 		if (!(other instanceof ContaRepassePK)) {
 			return false;
 		}
-		ContaRepassePK castOther = (ContaRepassePK)other;
-		return 
-			(this.numeroAcordoComercialParceiro == castOther.numeroAcordoComercialParceiro)
-			&& (this.numeroVersaoAcordoComercial == castOther.numeroVersaoAcordoComercial)
-			&& (this.codigoParceiroComercial == castOther.codigoParceiroComercial)
-			&& (this.numeroSequencialContaParceiroComercial == castOther.numeroSequencialContaParceiroComercial);
+		ContaRepassePK castOther = (ContaRepassePK) other;
+		return (this.numeroAcordoComercialParceiro == castOther.numeroAcordoComercialParceiro)
+				&& (this.numeroVersaoAcordoComercial == castOther.numeroVersaoAcordoComercial)
+				&& (this.codigoParceiroComercial == castOther.codigoParceiroComercial)
+				&& (this.numeroSequencialContaParceiroComercial == castOther.numeroSequencialContaParceiroComercial);
 	}
 
 	public int hashCode() {
@@ -73,7 +80,7 @@ public class ContaRepassePK implements Serializable {
 		hash = hash * prime + this.numeroVersaoAcordoComercial;
 		hash = hash * prime + this.codigoParceiroComercial;
 		hash = hash * prime + this.numeroSequencialContaParceiroComercial;
-		
+
 		return hash;
 	}
 }

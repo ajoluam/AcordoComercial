@@ -1,60 +1,68 @@
 package com.acordocomercial.api.domain;
 
 import java.io.Serializable;
-import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  * The persistent class for the acordocomercialparceiro database table.
  * 
  */
 @Entity
-@Table(name="acordocomercialparceiro")
-@NamedQuery(name="AcordoComercialParceiro.findAll", query="SELECT a FROM AcordoComercialParceiro a")
+@Table(name = "acordocomercialparceiro")
+@NamedQuery(name = "AcordoComercialParceiro.findAll", query = "SELECT a FROM AcordoComercialParceiro a")
 public class AcordoComercialParceiro implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@EmbeddedId
 	private AcordoComercialParceiroPK id;
 
-	@Column(name="COD_PACE_COML", nullable=false)
-	private int codigoParceiroComercial;
+	@Column(name = "COD_PACE_COML", nullable = false)
+	private Integer codigoParceiroComercial;
 
-	@Column(name="COD_PROD_OPEL", nullable=false)
-	private int codigoProdutoOperacional;
+	@Column(name = "COD_PROD_OPEL", nullable = false)
+	private Integer codigoProdutoOperacional;
 
-	@Column(name="COD_SITU", nullable=false)
-	private int codigoSituacao;
+	@Column(name = "COD_SITU", nullable = false)
+	private Integer codigoSituacao;
 
-	@Column(name="COD_TIPO_CATE_PROD_PACE", nullable=false)
-	private int codigoTipoCategoriaProdutoParceiro;
+	@Column(name = "COD_TIPO_CATE_PROD_PACE", nullable = false)
+	private Integer codigoTipoCategoriaProdutoParceiro;
 
-	@Column(name="COD_TIPO_CPSC_PROD_PACE", nullable=false)
-	private int codigoTipoComposicaoProdutoParceiro;
+	@Column(name = "COD_TIPO_CPSC_PROD_PACE", nullable = false)
+	private Integer codigoTipoComposicaoProdutoParceiro;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="DAT_FIM_VIGE_ACOR", nullable=false)
+	@Column(name = "DAT_FIM_VIGE_ACOR", nullable = false)
 	private Date dataFimVigenciaAcordo;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="DAT_INIO_VIGE_ACOR", nullable=false)
+	@Column(name = "DAT_INIO_VIGE_ACOR", nullable = false)
 	private Date dataInicioVigenciaAcordo;
 
-	@Column(name="IND_ASNA_FIM_VIGE", nullable=false, length=1)
+	@Column(name = "IND_ASNA_FIM_VIGE", nullable = false, length = 1)
 	private String indicadorAusenciaFimVigencia;
 
-	@Column(name="NUM_FUNL_COLA_COG_ATUA", nullable=false, length=9)
+	@Column(name = "NUM_FUNL_COLA_COG_ATUA", nullable = false, length = 9)
 	private String numeroFuncionalColaboradorConglomeradoAtualizacao;
 
-	//bi-directional many-to-one association to Acordocomercialcanaldisponivel
-	@OneToMany(mappedBy="acordoComercialParceiro")
-	private List<AcordoComercialCanalDisponivel> acordoComercialCanalDisponiveis;
+	// bi-directional many-to-one association to Acordocomercialcanaldisponivel
+	@OneToMany(mappedBy = "acordoComercialParceiro")
+	private List<AcordoComercialCanalDisponivel> acordoComercialCanalDisponiveis = new ArrayList<>();
 
-	//bi-directional many-to-one association to Contarepasse
-	@OneToMany(mappedBy="acordoComercialParceiro")
-	private List<ContaRepasse> contaRepasses;
+	// bi-directional many-to-one association to Contarepasse
+	@OneToMany(mappedBy = "acordoComercialParceiro")
+	private List<ContaRepasse> contaRepasses = new ArrayList<>();
 
 	public AcordoComercialParceiro() {
 	}
@@ -67,43 +75,43 @@ public class AcordoComercialParceiro implements Serializable {
 		this.id = id;
 	}
 
-	public int getCodigoParceiroComercial() {
+	public Integer getCodigoParceiroComercial() {
 		return this.codigoParceiroComercial;
 	}
 
-	public void setCodigoParceiroComercial(int codigoParceiroComercial) {
+	public void setCodigoParceiroComercial(Integer codigoParceiroComercial) {
 		this.codigoParceiroComercial = codigoParceiroComercial;
 	}
 
-	public int getCodigoProdutoOperacional() {
+	public Integer getCodigoProdutoOperacional() {
 		return this.codigoProdutoOperacional;
 	}
 
-	public void setCodigoProdutoOperacional(int codigoProdutoOperacional) {
+	public void setCodigoProdutoOperacional(Integer codigoProdutoOperacional) {
 		this.codigoProdutoOperacional = codigoProdutoOperacional;
 	}
 
-	public int getCodigoSituacao() {
+	public Integer getCodigoSituacao() {
 		return this.codigoSituacao;
 	}
 
-	public void setCodigoSituacao(int codigoSituacao) {
+	public void setCodigoSituacao(Integer codigoSituacao) {
 		this.codigoSituacao = codigoSituacao;
 	}
 
-	public int getCodigoTipoCategoriaProdutoParceiro() {
+	public Integer getCodigoTipoCategoriaProdutoParceiro() {
 		return this.codigoTipoCategoriaProdutoParceiro;
 	}
 
-	public void setCodigoTipoCategoriaProdutoParceiro(int codigoTipoCategoriaProdutoParceiro) {
+	public void setCodigoTipoCategoriaProdutoParceiro(Integer codigoTipoCategoriaProdutoParceiro) {
 		this.codigoTipoCategoriaProdutoParceiro = codigoTipoCategoriaProdutoParceiro;
 	}
 
-	public int getCodigoTipoComposicaoProdutoParceiro() {
+	public Integer getCodigoTipoComposicaoProdutoParceiro() {
 		return this.codigoTipoComposicaoProdutoParceiro;
 	}
 
-	public void setCodigoTipoComposicaoProdutoParceiro(int codigoTipoComposicaoProdutoParceiro) {
+	public void setCodigoTipoComposicaoProdutoParceiro(Integer codigoTipoComposicaoProdutoParceiro) {
 		this.codigoTipoComposicaoProdutoParceiro = codigoTipoComposicaoProdutoParceiro;
 	}
 
@@ -135,7 +143,8 @@ public class AcordoComercialParceiro implements Serializable {
 		return this.numeroFuncionalColaboradorConglomeradoAtualizacao;
 	}
 
-	public void setNumeroFuncionalColaboradorConglomeradoAtualizacao(String numeroFuncionalColaboradorConglomeradoAtualizacao) {
+	public void setNumeroFuncionalColaboradorConglomeradoAtualizacao(
+			String numeroFuncionalColaboradorConglomeradoAtualizacao) {
 		this.numeroFuncionalColaboradorConglomeradoAtualizacao = numeroFuncionalColaboradorConglomeradoAtualizacao;
 	}
 
@@ -143,18 +152,21 @@ public class AcordoComercialParceiro implements Serializable {
 		return this.acordoComercialCanalDisponiveis;
 	}
 
-	public void setAcordocomercialcanaldisponivels(List<AcordoComercialCanalDisponivel> acordoComercialCanalDisponiveis) {
+	public void setAcordocomercialcanaldisponivels(
+			List<AcordoComercialCanalDisponivel> acordoComercialCanalDisponiveis) {
 		this.acordoComercialCanalDisponiveis = acordoComercialCanalDisponiveis;
 	}
 
-	public AcordoComercialCanalDisponivel addAcordocomercialcanaldisponivel(AcordoComercialCanalDisponivel acordoComercialCanalDisponivel) {
+	public AcordoComercialCanalDisponivel addAcordocomercialcanaldisponivel(
+			AcordoComercialCanalDisponivel acordoComercialCanalDisponivel) {
 		getAcordoComercialCanalDisponiveis().add(acordoComercialCanalDisponivel);
 		acordoComercialCanalDisponivel.setAcordocomercialparceiro(this);
 
 		return acordoComercialCanalDisponivel;
 	}
 
-	public AcordoComercialCanalDisponivel removeAcordocomercialcanaldisponivel(AcordoComercialCanalDisponivel acordoComercialCanalDisponivel) {
+	public AcordoComercialCanalDisponivel removeAcordocomercialcanaldisponivel(
+			AcordoComercialCanalDisponivel acordoComercialCanalDisponivel) {
 		getAcordoComercialCanalDisponiveis().remove(acordoComercialCanalDisponivel);
 		acordoComercialCanalDisponivel.setAcordocomercialparceiro(null);
 

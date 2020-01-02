@@ -13,37 +13,36 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-
 /**
  * The persistent class for the tipovalortarifa database table.
  * 
  */
 @Entity
-@Table(name="tipovalortarifa")
-@NamedQuery(name="TipoValorTarifa.findAll", query="SELECT t FROM TipoValorTarifa t")
+@Table(name = "tipovalortarifa")
+@NamedQuery(name = "TipoValorTarifa.findAll", query = "SELECT t FROM TipoValorTarifa t")
 public class TipoValorTarifa implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="COD_TIPO_VLR_TARI" ,unique=true, nullable=false)
-	private int codigoTipoValorTarifa;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "COD_TIPO_VLR_TARI", unique = true, nullable = false)
+	private Integer codigoTipoValorTarifa;
 
-	@Column(name="NOM_TIPO_VLR_TARI" ,nullable=false, length=30)
+	@Column(name = "NOM_TIPO_VLR_TARI", nullable = false, length = 30)
 	private String nomeTipoValorTarifa;
 
-	//bi-directional many-to-one association to Configuracaocanalservicoarrecadacao
-	@OneToMany(mappedBy="tipoValorTarifa")
+	// bi-directional many-to-one association to Configuracaocanalservicoarrecadacao
+	@OneToMany(mappedBy = "tipoValorTarifa")
 	private List<ConfiguracaoCanalServicoArrecadacao> configuracaoCanalServicoArrecadacoes = new ArrayList<>();
 
 	public TipoValorTarifa() {
 	}
 
-	public int getCodigoTipoValorTarifa() {
+	public Integer getCodigoTipoValorTarifa() {
 		return this.codigoTipoValorTarifa;
 	}
 
-	public void setCodigoTipoValorTarifa(int codigoTipoValorTarifa) {
+	public void setCodigoTipoValorTarifa(Integer codigoTipoValorTarifa) {
 		this.codigoTipoValorTarifa = codigoTipoValorTarifa;
 	}
 
@@ -59,18 +58,21 @@ public class TipoValorTarifa implements Serializable {
 		return this.configuracaoCanalServicoArrecadacoes;
 	}
 
-	public void setConfiguracaocanalservicoarrecadacaos(List<ConfiguracaoCanalServicoArrecadacao> configuracaoCanalServicoArrecadacoes) {
+	public void setConfiguracaocanalservicoarrecadacaos(
+			List<ConfiguracaoCanalServicoArrecadacao> configuracaoCanalServicoArrecadacoes) {
 		this.configuracaoCanalServicoArrecadacoes = configuracaoCanalServicoArrecadacoes;
 	}
 
-	public ConfiguracaoCanalServicoArrecadacao addConfiguracaocanalservicoarrecadacao(ConfiguracaoCanalServicoArrecadacao configuracaoCanalServicoArrecadacao) {
+	public ConfiguracaoCanalServicoArrecadacao addConfiguracaocanalservicoarrecadacao(
+			ConfiguracaoCanalServicoArrecadacao configuracaoCanalServicoArrecadacao) {
 		getConfiguracaoCanalServicoArrecadacoes().add(configuracaoCanalServicoArrecadacao);
 		configuracaoCanalServicoArrecadacao.setTipovalortarifa(this);
 
 		return configuracaoCanalServicoArrecadacao;
 	}
 
-	public ConfiguracaoCanalServicoArrecadacao removeConfiguracaocanalservicoarrecadacao(ConfiguracaoCanalServicoArrecadacao configuracaoCanalServicoArrecadacao) {
+	public ConfiguracaoCanalServicoArrecadacao removeConfiguracaocanalservicoarrecadacao(
+			ConfiguracaoCanalServicoArrecadacao configuracaoCanalServicoArrecadacao) {
 		getConfiguracaoCanalServicoArrecadacoes().remove(configuracaoCanalServicoArrecadacao);
 		configuracaoCanalServicoArrecadacao.setTipovalortarifa(null);
 

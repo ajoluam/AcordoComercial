@@ -4,35 +4,33 @@ import java.io.Serializable;
 import javax.persistence.*;
 import java.math.BigDecimal;
 
-
 /**
  * The persistent class for the contarepasse database table.
  * 
  */
 @Entity
-@Table(name="contarepasse")
-@NamedQuery(name="ContaRepasse.findAll", query="SELECT c FROM ContaRepasse c")
+@Table(name = "contarepasse")
+@NamedQuery(name = "ContaRepasse.findAll", query = "SELECT c FROM ContaRepasse c")
 public class ContaRepasse implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@EmbeddedId
 	private ContaRepassePK id;
 
-	@Column(name="CODFINALD", length=5)
+	@Column(name = "CODFINALD", length = 5)
 	private String codigoFinalidadeSistemaPagamentoBrasileiro;
 
-	@Column(name="COMSGSPB", length=7)
+	@Column(name = "COMSGSPB", length = 7)
 	private String codigoMensagemSistemaPagamentoBrasileiro;
 
-	@Column(name="PCT_RATE_CONT_REPS_PACE", nullable=false, precision=10, scale=2)
+	@Column(name = "PCT_RATE_CONT_REPS_PACE", nullable = false, precision = 10, scale = 2)
 	private BigDecimal percentualRateioContaRepasseParceiro;
 
-	//bi-directional many-to-one association to Acordocomercialparceiro
+	// bi-directional many-to-one association to Acordocomercialparceiro
 	@ManyToOne
 	@JoinColumns({
-		@JoinColumn(name="NUM_ACOR_COML_PACE", referencedColumnName="NUM_ACOR_COML_PACE", nullable=false, insertable=false, updatable=false),
-		@JoinColumn(name="NUM_VERS_ACOR_COML", referencedColumnName="NUM_VERS_ACOR_COML", nullable=false, insertable=false, updatable=false)
-		})
+			@JoinColumn(name = "NUM_ACOR_COML_PACE", referencedColumnName = "NUM_ACOR_COML_PACE", nullable = false, insertable = false, updatable = false),
+			@JoinColumn(name = "NUM_VERS_ACOR_COML", referencedColumnName = "NUM_VERS_ACOR_COML", nullable = false, insertable = false, updatable = false) })
 	private AcordoComercialParceiro acordoComercialParceiro;
 
 	public ContaRepasse() {
