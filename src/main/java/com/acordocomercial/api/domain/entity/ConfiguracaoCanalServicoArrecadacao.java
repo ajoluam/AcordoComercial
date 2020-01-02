@@ -17,7 +17,6 @@ public class ConfiguracaoCanalServicoArrecadacao implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "COD_CNFG_CANA_SERV_ARRE", unique = true, nullable = false)
 	private Integer codigoConfiguracaoCanalServicoArrecadacao;
 

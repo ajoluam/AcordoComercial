@@ -24,7 +24,6 @@ public class TipoValorTarifa implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "COD_TIPO_VLR_TARI", unique = true, nullable = false)
 	private Integer codigoTipoValorTarifa;
 
