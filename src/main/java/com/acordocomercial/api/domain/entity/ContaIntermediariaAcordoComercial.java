@@ -15,6 +15,7 @@ public class ContaIntermediariaAcordoComercial implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "COD_CONT_INTM_ACOR_COML", unique = true, nullable = false)
 	private Integer codigoContaIntermediariaAcordoComercial;
 
