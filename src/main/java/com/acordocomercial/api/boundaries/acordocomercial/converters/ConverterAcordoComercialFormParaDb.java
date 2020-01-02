@@ -11,7 +11,11 @@ public class ConverterAcordoComercialFormParaDb implements Converter<ContaInterm
 	public ContaIntermediariaAcordoComercial convert(ContaIntermediariaForm source) {
 		
 		ContaIntermediariaAcordoComercial contaIntermediariaAcordoComercial = new ContaIntermediariaAcordoComercial();
-		
+		contaIntermediariaAcordoComercial.setCodigoEmpresaConglomerado(source.getCodigoBanco());
+		contaIntermediariaAcordoComercial.setCodigoTipoEmpresaConglomerado(source.getCodigoEmpresa());
+		contaIntermediariaAcordoComercial.setNumeroConta(source.getNumeroConta());
+		contaIntermediariaAcordoComercial.setNumeroUnidadeAtendimentoConglomerado(source.getNumeroAgencia());
+		contaIntermediariaAcordoComercial.setNumeroDigitoVerificadorConta(source.getDigitoVerificador());
 		
 		return contaIntermediariaAcordoComercial;
 	}
