@@ -20,9 +20,9 @@ public class AcordoCanalMeioPagamento implements Serializable {
 	//bi-directional many-to-one association to Acordocomercialcanaldisponivel
 	@ManyToOne
 	@JoinColumns({
-		@JoinColumn(name="codigoCanalDistribuicao", referencedColumnName="codigoCanalDistribuicao", nullable=false, insertable=false, updatable=false),
-		@JoinColumn(name="numeroAcordoComercialParceiro", referencedColumnName="numeroAcordoComercialParceiro", nullable=false, insertable=false, updatable=false),
-		@JoinColumn(name="numeroVersaoAcordoComercial", referencedColumnName="numeroVersaoAcordoComercial", nullable=false, insertable=false, updatable=false)
+		@JoinColumn(name="COD_CANA_DTBC", referencedColumnName="COD_CANA_DTBC", nullable=false, insertable=false, updatable=false),
+		@JoinColumn(name="NUM_ACOR_COML_PACE", referencedColumnName="NUM_ACOR_COML_PACE", nullable=false, insertable=false, updatable=false),
+		@JoinColumn(name="NUM_VERS_ACOR_COML", referencedColumnName="NUM_VERS_ACOR_COML", nullable=false, insertable=false, updatable=false)
 		})
 	private AcordoComercialCanalDisponivel acordoComercialCanalDisponivel;
 

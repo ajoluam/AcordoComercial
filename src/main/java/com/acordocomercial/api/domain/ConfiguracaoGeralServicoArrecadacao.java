@@ -18,29 +18,29 @@ public class ConfiguracaoGeralServicoArrecadacao implements Serializable {
 	@EmbeddedId
 	private ConfiguracaoGeralServicoArrecadacaoPK id;
 
-	@Column(nullable=false)
+	@Column(name="COD_CRIT_TXA_CMON_ACOR_CONT", nullable=false)
 	private int codigoCriterioTaxaCorrecaoMonetariaAcordoContrato;
 
-	@Column(length=1)
+	@Column(name="DAT_PRDC_TARI_SERV_ARRE", length=1)
 	private String codigoPeriodicidadeTarifaServicoArrecadacao;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(nullable=false)
+	@Column(name="DAT_FIM_VIGE_TARI_SERV_ARRE", nullable=false)
 	private Date dataFimVigenciaTarifaServicoArrecadacao;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(nullable=false)
+	@Column(name="DAT_INIO_VIGE_TARI_SERV_ARRE", nullable=false)
 	private Date dataInicioVigenciaTarifaServicoArrecadacao;
 
-	@Column(nullable=false)
+	@Column(name="NUM_ACOR_COML_PACE", nullable=false)
 	private int numeroAcordoComercialParceiro;
 
-	@Column(nullable=false)
+	@Column(name="NUM_VERS_ACOR_COML", nullable=false)
 	private int numeroVersaoAcordoComercial;
 
 	//bi-directional many-to-one association to Tipodebitotarifa
 	@ManyToOne
-	@JoinColumn(name="codigoTipoDebitoTarifa", nullable=false, insertable=false, updatable=false)
+	@JoinColumn(name="COD_TIPO_DEBT_TARI", referencedColumnName = "COD_TIPO_DEBT_TARI",  nullable=false, insertable=false, updatable=false)
 	private TipoDebitoTarifa tipoDebitoTarifa;
 
 	public ConfiguracaoGeralServicoArrecadacao() {

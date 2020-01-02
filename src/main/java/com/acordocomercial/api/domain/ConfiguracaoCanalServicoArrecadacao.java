@@ -18,27 +18,27 @@ public class ConfiguracaoCanalServicoArrecadacao implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(unique=true, nullable=false)
+	@Column(name="COD_CNFG_CANA_SERV_ARRE", unique=true, nullable=false)
 	private int codigoConfiguracaoCanalServicoArrecadacao;
 
-	@Column(nullable=false)
+	@Column(name="QTD_DIA_FLTG_SERV_ARRE", nullable=false)
 	private int quantidadeDiaFloatingServicoArrecadacao;
 
-	@Column(nullable=false, precision=10, scale=2)
+	@Column(name="VLR_TARI_SERV_ARRE", nullable=false, precision=10, scale=2)
 	private BigDecimal valorTarifaServicoArrecadacao;
 
 	//bi-directional many-to-one association to Acordocomercialcanaldisponivel
 	@ManyToOne
 	@JoinColumns({
-		@JoinColumn(name="codigoCanalDistribuicao", referencedColumnName="codigoCanalDistribuicao", nullable=false),
-		@JoinColumn(name="numeroAcordoComercialParceiro", referencedColumnName="numeroAcordoComercialParceiro", nullable=false),
-		@JoinColumn(name="numeroVersaoAcordoComercial", referencedColumnName="numeroVersaoAcordoComercial", nullable=false)
+		@JoinColumn(name="COD_CANA_DTBC", referencedColumnName="COD_CANA_DTBC", nullable=false),
+		@JoinColumn(name="NUM_ACOR_COML_PACE", referencedColumnName="NUM_ACOR_COML_PACE", nullable=false),
+		@JoinColumn(name="NUM_VERS_ACOR_COML", referencedColumnName="NUM_VERS_ACOR_COML", nullable=false)
 		})
 	private AcordoComercialCanalDisponivel acordoComercialCanalDisponivel;
 
 	//bi-directional many-to-one association to Tipovalortarifa
 	@ManyToOne
-	@JoinColumn(name="codigoTipoValorTarifa", nullable=false)
+	@JoinColumn(name="COD_TIPO_VLR_TARI", referencedColumnName = "COD_TIPO_VLR_TARI",  nullable=false)
 	private TipoValorTarifa tipoValorTarifa;
 
 	public ConfiguracaoCanalServicoArrecadacao() {

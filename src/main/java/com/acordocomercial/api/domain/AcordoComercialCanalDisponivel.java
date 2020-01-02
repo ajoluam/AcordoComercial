@@ -28,7 +28,7 @@ public class AcordoComercialCanalDisponivel implements Serializable {
 	@EmbeddedId
 	private AcordoComercialCanalDisponivelPK id;
 
-	@Column(nullable=false)
+	@Column(name="COD_SITU", nullable=false)
 	private int codigoSituacao;
 
 	//bi-directional many-to-one association to Acordocanalmeiopagamento
@@ -38,8 +38,8 @@ public class AcordoComercialCanalDisponivel implements Serializable {
 	//bi-directional many-to-one association to Acordocomercialparceiro
 	@ManyToOne
 	@JoinColumns({
-		@JoinColumn(name="numeroAcordoComercialParceiro", referencedColumnName="numeroAcordoComercialParceiro", nullable=false, insertable=false, updatable=false),
-		@JoinColumn(name="numeroVersaoAcordoComercial", referencedColumnName="numeroVersaoAcordoComercial", nullable=false, insertable=false, updatable=false)
+		@JoinColumn(name="NUM_ACOR_COML_PACE", referencedColumnName="NUM_ACOR_COML_PACE", nullable=false, insertable=false, updatable=false),
+		@JoinColumn(name="NUM_VERS_ACOR_COML", referencedColumnName="NUM_VERS_ACOR_COML", nullable=false, insertable=false, updatable=false)
 		})
 	private AcordoComercialParceiro acordoComercialParceiro;
 

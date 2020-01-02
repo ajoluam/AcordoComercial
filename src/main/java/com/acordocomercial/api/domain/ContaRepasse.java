@@ -18,20 +18,20 @@ public class ContaRepasse implements Serializable {
 	@EmbeddedId
 	private ContaRepassePK id;
 
-	@Column(length=5)
+	@Column(name="CODFINALD", length=5)
 	private String codigoFinalidadeSistemaPagamentoBrasileiro;
 
-	@Column(length=7)
+	@Column(name="COMSGSPB", length=7)
 	private String codigoMensagemSistemaPagamentoBrasileiro;
 
-	@Column(nullable=false, precision=10, scale=2)
+	@Column(name="PCT_RATE_CONT_REPS_PACE", nullable=false, precision=10, scale=2)
 	private BigDecimal percentualRateioContaRepasseParceiro;
 
 	//bi-directional many-to-one association to Acordocomercialparceiro
 	@ManyToOne
 	@JoinColumns({
-		@JoinColumn(name="numeroAcordoComercialParceiro", referencedColumnName="numeroAcordoComercialParceiro", nullable=false, insertable=false, updatable=false),
-		@JoinColumn(name="numeroVersaoAcordoComercial", referencedColumnName="numeroVersaoAcordoComercial", nullable=false, insertable=false, updatable=false)
+		@JoinColumn(name="NUM_ACOR_COML_PACE", referencedColumnName="NUM_ACOR_COML_PACE", nullable=false, insertable=false, updatable=false),
+		@JoinColumn(name="NUM_VERS_ACOR_COML", referencedColumnName="NUM_VERS_ACOR_COML", nullable=false, insertable=false, updatable=false)
 		})
 	private AcordoComercialParceiro acordoComercialParceiro;
 

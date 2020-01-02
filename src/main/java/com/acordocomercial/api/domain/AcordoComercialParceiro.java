@@ -19,33 +19,33 @@ public class AcordoComercialParceiro implements Serializable {
 	@EmbeddedId
 	private AcordoComercialParceiroPK id;
 
-	@Column(nullable=false)
+	@Column(name="COD_PACE_COML", nullable=false)
 	private int codigoParceiroComercial;
 
-	@Column(nullable=false)
+	@Column(name="COD_PROD_OPEL", nullable=false)
 	private int codigoProdutoOperacional;
 
-	@Column(nullable=false)
+	@Column(name="COD_SITU", nullable=false)
 	private int codigoSituacao;
 
-	@Column(nullable=false)
+	@Column(name="COD_TIPO_CATE_PROD_PACE", nullable=false)
 	private int codigoTipoCategoriaProdutoParceiro;
 
-	@Column(nullable=false)
+	@Column(name="COD_TIPO_CPSC_PROD_PACE", nullable=false)
 	private int codigoTipoComposicaoProdutoParceiro;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(nullable=false)
+	@Column(name="DAT_FIM_VIGE_ACOR", nullable=false)
 	private Date dataFimVigenciaAcordo;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(nullable=false)
+	@Column(name="DAT_INIO_VIGE_ACOR", nullable=false)
 	private Date dataInicioVigenciaAcordo;
 
-	@Column(nullable=false, length=1)
+	@Column(name="IND_ASNA_FIM_VIGE", nullable=false, length=1)
 	private String indicadorAusenciaFimVigencia;
 
-	@Column(nullable=false, length=9)
+	@Column(name="NUM_FUNL_COLA_COG_ATUA", nullable=false, length=9)
 	private String numeroFuncionalColaboradorConglomeradoAtualizacao;
 
 	//bi-directional many-to-one association to Acordocomercialcanaldisponivel

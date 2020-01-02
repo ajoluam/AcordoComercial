@@ -12,16 +12,16 @@ public class ContaRepassePK implements Serializable {
 	//default serial version id, required for serializable classes.
 	private static final long serialVersionUID = 1L;
 
-	@Column(insertable=false, updatable=false, unique=true, nullable=false)
+	@Column(name="NUM_ACOR_COML_PACE", insertable=false, updatable=false, unique=true, nullable=false)
 	private int numeroAcordoComercialParceiro;
 
-	@Column(insertable=false, updatable=false, unique=true, nullable=false)
+	@Column(name="NUM_VERS_ACOR_COML", insertable=false, updatable=false, unique=true, nullable=false)
 	private int numeroVersaoAcordoComercial;
 
-	@Column(unique=true, nullable=false)
+	@Column(name="COD_PACE_COML", unique=true, nullable=false)
 	private int codigoParceiroComercial;
 
-	@Column(unique=true, nullable=false)
+	@Column(name="NUM_SEQE_CONT_PACE_COML", unique=true, nullable=false)
 	private int numeroSequencialContaParceiroComercial;
 
 	public ContaRepassePK() {

@@ -12,10 +12,10 @@ public class ConfiguracaoGeralServicoArrecadacaoPK implements Serializable {
 	//default serial version id, required for serializable classes.
 	private static final long serialVersionUID = 1L;
 
-	@Column(unique=true, nullable=false)
+	@Column(name="COD_CNFG_GERL_SERV_ARRE", unique=true, nullable=false)
 	private int codigoConfiguracaoGeralServicoArrecadacao;
 
-	@Column(insertable=false, updatable=false, unique=true, nullable=false)
+	@Column(name="COD_TIPO_DEBT_TARI", insertable=false, updatable=false, unique=true, nullable=false)
 	private int codigoTipoDebitoTarifa;
 
 	public ConfiguracaoGeralServicoArrecadacaoPK() {

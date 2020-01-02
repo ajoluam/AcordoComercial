@@ -12,16 +12,16 @@ public class AcordoCanalMeioPagamentoPK implements Serializable {
 	//default serial version id, required for serializable classes.
 	private static final long serialVersionUID = 1L;
 
-	@Column(insertable=false, updatable=false, unique=true, nullable=false)
+	@Column(name="NUM_ACOR_COML_PACE", insertable=false, updatable=false, unique=true, nullable=false)
 	private int numeroAcordoComercialParceiro;
 
-	@Column(insertable=false, updatable=false, unique=true, nullable=false)
+	@Column(name="NUM_VERS_ACOR_COML", insertable=false, updatable=false, unique=true, nullable=false)
 	private int numeroVersaoAcordoComercial;
 
-	@Column(insertable=false, updatable=false, unique=true, nullable=false, length=2)
+	@Column(name="COD_CANA_DTBC", insertable=false, updatable=false, unique=true, nullable=false, length=2)
 	private String codigoCanalDistribuicao;
 
-	@Column(unique=true, nullable=false)
+	@Column(name="COD_TIPO_MEIO_PGTO", unique=true, nullable=false)
 	private int codigoTipoMeioPagamento;
 
 	public AcordoCanalMeioPagamentoPK() {

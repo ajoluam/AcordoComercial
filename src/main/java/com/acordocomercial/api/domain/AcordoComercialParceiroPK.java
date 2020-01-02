@@ -12,10 +12,10 @@ public class AcordoComercialParceiroPK implements Serializable {
 	//default serial version id, required for serializable classes.
 	private static final long serialVersionUID = 1L;
 
-	@Column(unique=true, nullable=false)
+	@Column(name="NUM_ACOR_COML_PACE", unique=true, nullable=false)
 	private int numeroAcordoComercialParceiro;
 
-	@Column(unique=true, nullable=false)
+	@Column(name="NUM_VERS_ACOR_COML", unique=true, nullable=false)
 	private int numeroVersaoAcordoComercial;
 
 	public AcordoComercialParceiroPK() {

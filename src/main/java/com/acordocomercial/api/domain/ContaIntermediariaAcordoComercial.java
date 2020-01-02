@@ -16,28 +16,28 @@ public class ContaIntermediariaAcordoComercial implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(unique=true, nullable=false)
+	@Column(name="COD_CONT_INTM_ACOR_COML", unique=true, nullable=false)
 	private int codigoContaIntermediariaAcordoComercial;
 
-	@Column(nullable=false, length=3)
+	@Column(name="COD_BANCO", nullable=false, length=3)
 	private String codigoEmpresaConglomerado;
 
-	@Column(nullable=false, length=3)
+	@Column(name="TPEMPRES", nullable=false, length=3)
 	private String codigoTipoEmpresaConglomerado;
 
-	@Column(nullable=false)
+	@Column(name="NUM_ACOR_COML_PACE", nullable=false)
 	private int numeroAcordoComercialParceiro;
 
-	@Column(nullable=false, length=7)
+	@Column(name="CONTA", nullable=false, length=7)
 	private String numeroConta;
 
-	@Column(nullable=false, length=1)
+	@Column(name="DAC10", nullable=false, length=1)
 	private String numeroDigitoVerificadorConta;
 
-	@Column(nullable=false, length=4)
+	@Column(name="AGENCIA", nullable=false, length=4)
 	private String numeroUnidadeAtendimentoConglomerado;
 
-	@Column(nullable=false)
+	@Column(name="NUM_VERS_ACOR_COML", nullable=false)
 	private int numeroVersaoAcordoComercial;
 
 	public ContaIntermediariaAcordoComercial() {
