@@ -2,6 +2,8 @@ package com.acordocomercial.api.boundaries.acordocomercial.entrypoints;
 
 import javax.validation.Valid;
 
+import org.modelmapper.ModelMapper;
+import org.modelmapper.PropertyMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -41,10 +43,20 @@ public class AcordoComercialController {
 		
 		acordo = acordoComercialParceiroRepository.findById(acordoPK).orElse(null);
 		
+		ModelMapper model = new ModelMapper();
+		model.addMappings(new PropertyMap<AcordoComercialParceiro, AcordoComercialView>() {
+
+			@Override
+			protected void configure() {
+				map().setNumeroVersaoAcordoComercial(source.getId().getNumeroVersaoAcordoComercial());;
+				
+			}
+		});
+				
 		AcordoComercialView acordoView = new AcordoComercialView();
-		acordoView.setCodigoParceiroComercial(acordo.getCodigoParceiroComercial());
-		acordoView.setCodigoProdutoOperacional(acordo.getCodigoProdutoOperacional());
-		acordoView.setCodigoSituacao(acordo.getCodigoSituacao());
+		
+		acordoView = model.map(acordo, AcordoComercialView.class);
+		
 		
 		return ResponseEntity.ok(acordoView);
 	}
